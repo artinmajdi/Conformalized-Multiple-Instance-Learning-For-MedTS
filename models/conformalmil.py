@@ -360,8 +360,8 @@ class ConformalMIL(nn.Module):
             )
             
             if best_val_f1 < test_metrics_dict['F1']:
-                print(f"Best validation Accuracy score update: {best_val_f1} ---> {test_metrics_dict['F1']}")
-                best_val_f1 = test_metrics_dict['F1']
+                print(f"Best validation Accuracy score update: {best_val_f1} ---> {val_metrics_dict['F1']}")
+                best_val_f1 = val_metrics_dict['F1']
                 
                 if self.configs.use_multi_gpu:
                     torch.save(self.milnet.module.state_dict(), os.path.join(ckpt,"conformal_mil.pth"))
